@@ -78,25 +78,31 @@ export const login = async (req: Request, res: Response) => {
     }
 }
 
+
+
 export const getMyDetails = async (req: AuthRequest, res: Response) => {
-  // const roles = req.user.roles
-  if (!req.user) {
-    return res.status(401).json({ message: "Unauthorized" })
-  }
-  const userId = req.user.sub
-  const user =
-    ((await User.findById(userId).select("-password")) as IUser) || null
+  try {
+    if (!req.user) {
+      return res.status(401).json({ message: "Unauthorized" })
+    }
 
-  if (!user) {
-    return res.status(404).json({
-      message: "User not found"
+    const userId = req.user.sub
+
+    const user = await User.findById(userId).select("-password")
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" })
+    }
+
+    res.status(200).json({
+      message: "Ok",
+      data: {
+        username: user.username,
+        email: user.email
+      }
     })
+  } catch (error) {
+    console.error("getMyDetails error:", error)
+    res.status(500).json({ message: "Internal server error" })
   }
-
-  const { username, email } = user
-
-  res.status(200).json({
-    message: "Ok",
-    data: { username, email }
-  })
 }
