@@ -5,6 +5,7 @@ import authRouter from './routers/auth.routers';
 import incomeRouter from './routers/income.routers';
 import { startSalaryCron } from './jobs/salaryCron';
 import expencesRouter from './routers/expences.routers';
+import goalsRouter from './routers/goals.routers';
 import mongoose from 'mongoose';
 dotenv.config();
 
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
 });
 app.use("/api/v1/income", incomeRouter)
 app.use("/api/v1/expences", expencesRouter);
+app.use("/api/v1/goals", goalsRouter);
 
 
 mongoose
