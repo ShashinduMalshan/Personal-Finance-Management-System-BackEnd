@@ -4,6 +4,7 @@ import cors from "cors";
 import authRouter from './routers/auth.routers';
 import incomeRouter from './routers/income.routers';
 import { startSalaryCron } from './jobs/salaryCron';
+import expencesRouter from './routers/expences.routers';
 import mongoose from 'mongoose';
 dotenv.config();
 
@@ -27,6 +28,7 @@ app.get('/', (req, res) => {
   res.send('Personal Finance Management System API is running');
 });
 app.use("/api/v1/income", incomeRouter)
+app.use("/api/v1/expences", expencesRouter);
 
 
 mongoose
