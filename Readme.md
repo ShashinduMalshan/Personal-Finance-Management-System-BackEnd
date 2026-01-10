@@ -1,93 +1,180 @@
-# 💎 Diprella | Personal Finance Management System
 
-Diprella is a high-fidelity, professional SaaS-style personal finance dashboard designed to provide users with deep analytical insights into their financial health. Built with a modern tech stack and a focus on "Google Studio" inspired aesthetics, it bridges the gap between simple ledger tracking and strategic capital management.
 
----
+# 🧠 Personal Finance Management System (BackEnd)
 
-## 🚀 Core Features
+A backend API for a personal finance management application — built with **Node.js**, **Express**, and **MongoDB** — that handles user authentication, income tracking, expense management, analytics, and financial goals.
 
-### 📊 Professional Dashboard
-*   **Real-time KPI Tracking:** Instant visibility into Total Revenue, Active Users (simulated), Orders, and Growth.
-*   **High-Fidelity Visualizations:** Custom-built bar and donut charts for revenue overview and traffic source distribution.
-*   **Contextual Awareness:** Smart greetings and activity summaries based on user session data.
-
-### 💰 Strategic Income & Expense Ledger
-*   **Advanced Tracking:** Categorized logging of all inbound and outbound capital.
-*   **Pagination & Search:** Efficiently manage large datasets with built-in search filters and paginated views.
-*   **Auto-Add Automation:** Simulate recurring income streams with a single toggle.
-
-### 🎯 Smart Expense Goals (Goal-Based Savings)
-*   **Objective-Based Tracking:** Create specific goals for electronics, travel, education, and more.
-*   **Accumulation Velocity:** Visual progress bars with "On Track" or "Delayed" status indicators.
-*   **Smart Calculations:** Automatically determines the required monthly savings to meet deadlines based on current net surplus.
-*   **Impact Insights:** Dynamic messages explaining how reducing certain expense categories (like Food or Entertainment) accelerates goal completion.
-
-### 💡 Leak Intelligence AI (Insights)
-*   **Audit Intelligence:** Detects "Ghost Subscriptions" (recurring description patterns).
-*   **Lifestyle Creep Index:** Analyzes "Temporal Intensity" to identify spending spikes on weekends.
-*   **Capital Rescue Roadmap:** Provides actionable strategic recommendations to recover dormant capital (e.g., Projected Annual Rescue).
-
-### 👤 User Profile Architecture
-*   **Identity Management:** Editable profile fields for name, email, and professional role.
-*   **Security Protocol:** Password management with real-time strength indicators and 2FA status tracking.
-*   **Session Telemetry:** Visual logs for last authentication, registered devices, and network integrity.
+🔗 GitHub Repo: [https://github.com/ShashinduMalshan/Personal-Finance-Management-System-BackEnd.git](https://github.com/ShashinduMalshan/Personal-Finance-Management-System-BackEnd.git)
 
 ---
 
-## 🛠 Technical Stack
+## 🛠️ Technologies Used
 
-*   **Frontend Library:** React 18+ (using Functional Components & Hooks)
-*   **Type Safety:** TypeScript for robust data structures and API contracts
-*   **Styling:** Tailwind CSS for a utility-first, highly responsive UI
-*   **Icons:** Lucide React for consistent, scalable vector iconography
-*   **Routing:** React Router (HashRouter) for client-side navigation
-*   **Theme Engine:** Native Dark Mode support with persistent state via LocalStorage
-*   **Architecture:** Service-based pattern for data management (Mock API simulation)
+* **Node.js** – JavaScript runtime for server
+* **Express.js** – Backend API framework
+* **MongoDB** – NoSQL document database
+* **Mongoose** – Object Data Modeling (ODM) for MongoDB
+* **JWT (jsonwebtoken)** – Secure authentication
+* **dotenv** – Environment variable management
+* **nodemon** – Development utility for auto‑restarting server
 
 ---
 
-## 📂 Project Structure
+## 🚀 Features
 
-```text
-src/
-├── Components/         # Reusable UI elements (Charts, Inputs, Layouts)
-│   ├── Charts.tsx      # Custom SVG-based Bar and Donut charts
-│   ├── SidebarLayout   # Main navigation wrapper with Header integration
-│   └── ...
-├── pages/              # Main route components
-│   ├── Dashboard.tsx   # Overview and high-level stats
-│   ├── Insights.tsx    # Algorithmic leak detection
-│   ├── Goals.tsx       # Savings objectives tracking
-│   ├── Profile.tsx     # User settings and security
-│   └── ...
-├── services/           # Data fetching and simulation logic
-│   ├── income.ts       # Income record CRUD operations
-│   ├── expenses.ts     # Expense record CRUD operations
-│   ├── goals.ts        # Goal-based logic and persistence
-│   └── user.ts         # Profile and authentication mock services
-├── types.ts            # Global TypeScript interfaces and types
-└── App.tsx             # Root component and route definitions
+✔ User registration & login with JWT
+✔ Securely hashed passwords
+✔ CRUD for incomes and expenses
+✔ Analytics summaries (e.g., monthly totals)
+✔ Goal tracking (saving goals / targets)
+✔ Organized REST API structure
+
+---
+
+## 📦 Installation
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/ShashinduMalshan/Personal-Finance-Management-System-BackEnd.git
+cd Personal-Finance-Management-System-BackEnd
+```
+
+2. **Install dependencies**
+
+```bash
+npm install
+```
+
+3. **Create `.env` file**
+
+Create a `.env` file in the root:
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+```
+
+4. **Start the server (development)**
+
+```bash
+npm run dev
 ```
 
 ---
 
-## 🎨 UI/UX Philosophy
+## 🔐 Environment Variables
 
-Diprella follows a **"Strategic Professional"** design language:
-*   **Aesthetics:** Soft shadows, large border-radii (`rounded-[3rem]`), and a sophisticated color palette (Emerald, Teal, and Slate).
-*   **Responsibility:** Fully fluid layout adapting from mobile-first menu toggles to expansive desktop grids.
-*   **Feedback:** Micro-interactions for hover states, loading skeletons for data fetching, and toast notifications for user actions.
+Your `.env` should include:
 
----
-
-## 📝 Presentation Notes (For University Projects)
-
-*   **Non-Bank Integration:** This application uses calculation-based logic and mock services. It is designed to demonstrate frontend architecture and data visualization capabilities rather than real backend integration.
-*   **Algorithm Logic:** The "Smart Insights" and "Goals" pages use real-time mathematical offsets to calculate "Savings Velocity" and "Impact Analysis."
-*   **State Management:** Demonstrates complex state synchronization across multiple views (e.g., updating a name in the Profile immediately updates the Dashboard greeting).
+| Variable     | Purpose                           |
+| ------------ | --------------------------------- |
+| `PORT`       | Port number the server listens on |
+| `MONGO_URI`  | MongoDB connection string         |
+| `JWT_SECRET` | Secret key for signing JWT tokens |
 
 ---
 
-## 📄 License
+## 📡 API Endpoints
 
-This project is developed for educational purposes and is suitable for university presentations and frontend engineering portfolios.
+> All protected routes require an `Authorization: Bearer <TOKEN>` header.
+
+### **Authentication**
+
+| Method | Endpoint             | Description                   |
+| ------ | -------------------- | ----------------------------- |
+| POST   | `/api/auth/register` | Register a new user           |
+| POST   | `/api/auth/login`    | Login and receive a JWT token |
+
+### **Income**
+
+| Method | Endpoint          | Description         |
+| ------ | ----------------- | ------------------- |
+| GET    | `/api/income`     | Get all incomes     |
+| POST   | `/api/income`     | Create a new income |
+| PUT    | `/api/income/:id` | Update an income    |
+| DELETE | `/api/income/:id` | Delete an income    |
+
+### **Expenses**
+
+| Method | Endpoint            | Description       |
+| ------ | ------------------- | ----------------- |
+| GET    | `/api/expenses`     | Get all expenses  |
+| POST   | `/api/expenses`     | Add new expense   |
+| PUT    | `/api/expenses/:id` | Update an expense |
+| DELETE | `/api/expenses/:id` | Delete an expense |
+
+### **Goals**
+
+| Method | Endpoint         | Description       |
+| ------ | ---------------- | ----------------- |
+| GET    | `/api/goals`     | Get all goals     |
+| POST   | `/api/goals`     | Create a new goal |
+| PUT    | `/api/goals/:id` | Modify a goal     |
+| DELETE | `/api/goals/:id` | Remove a goal     |
+
+> Note: The actual names of your routes may differ based on your implementation. Adjust the paths if your backend uses different route prefixes.
+
+---
+
+## 📈 Example Usage (with JWT)
+
+After logging in:
+
+```http
+Authorization: Bearer <YOUR_JWT_TOKEN>
+```
+
+Use this token in your frontend requests to access protected routes.
+
+---
+
+## 🧪 Testing
+
+You can test these endpoints easily with tools like:
+
+* **Postman**
+* **Insomnia**
+* **Hoppscotch**
+
+---
+
+## 🧩 Folder Structure (Example)
+
+```
+📦Personal-Finance-Management-System-BackEnd
+ ┣ 📂src
+ ┃ ┣ 📂controllers
+ ┃ ┣ 📂models
+ ┃ ┣ 📂routes
+ ┃ ┣ app.js
+ ┃ ┗ server.js
+ ┣ .env
+ ┣ package.json
+ ┣ README.md
+```
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to your branch
+5. Open a Pull Request
+
+---
+
+## 📝 License
+
+This project uses an open‑source license (e.g., MIT). Customize this according to your choice.
+
+---
+
+## 📌 About
+
+This backend powers a personal finance system that helps track income, expenses, and goals — perfect to pair with a React or mobile frontend.
+
+---
