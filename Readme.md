@@ -1,5 +1,3 @@
-[
-
 # 🧠 Personal Finance Management System (BackEnd)
 
 A backend API for a personal finance management application — built with **Node.js**, **Express**, and **MongoDB** — that handles user authentication, income tracking, expense management, analytics, and financial goals.
