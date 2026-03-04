@@ -1,11 +1,12 @@
-
+[
 
 # 🧠 Personal Finance Management System (BackEnd)
 
 A backend API for a personal finance management application — built with **Node.js**, **Express**, and **MongoDB** — that handles user authentication, income tracking, expense management, analytics, and financial goals.
 
-🔗 GitHub Repo: [https://github.com/ShashinduMalshan/Personal-Finance-Management-System-BackEnd.git](https://github.com/ShashinduMalshan/Personal-Finance-Management-System-BackEnd.git)
 
+🌐 Frontend Repository:  
+[Personal-Finance-Management-System-FontEnd](https://github.com/ShashinduMalshan/Personal-Finance-Management-System-FontEnd.git)
 ---
 
 ## 🛠️ Technologies Used
@@ -177,4 +178,4 @@ This project uses an open‑source license (e.g., MIT). Customize this according
 
 This backend powers a personal finance system that helps track income, expenses, and goals — perfect to pair with a React or mobile frontend.
 
----
+---](https://github.com/ShashinduMalshan/Personal-Finance-Management-System-FontEnd.git)
