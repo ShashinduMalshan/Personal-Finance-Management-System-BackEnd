@@ -175,4 +175,3 @@ This project uses an open‑source license (e.g., MIT). Customize this according
 
 This backend powers a personal finance system that helps track income, expenses, and goals — perfect to pair with a React or mobile frontend.
 
----](https://github.com/ShashinduMalshan/Personal-Finance-Management-System-FontEnd.git)
